@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+<h1 th:text="'Hello, my new Friend!'"></h1>
+<p>Сравнить курс рубля сегодня и уже вчера. Если хочешь узнать - жми скорее кнопку "Compare"</p>
+<br>
+<br>
+
+<form action="/compare/yesterday" method="get">
+    <button type="submit" th:text="'Compare'"></button>
+</form>
+<br>
+
+</body>
+</html>

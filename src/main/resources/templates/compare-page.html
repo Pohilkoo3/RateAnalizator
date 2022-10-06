@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Page fo compare rate of currency</title>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="5">
+    <caption>Сравнение процентной ставки</caption>
+    <thead>
+    <tr>
+        <td>День</td>
+        <td>Рублей за доллар</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Сегодня</td>
+        <td th:text="${answer.getRateNow()}"></td>
+    </tr>
+    <tr>
+        <td>Вчера</td>
+        <td th:text="${answer.getRateYYesterday()}"></td>
+    </tr>
+    </tbody>
+
+</table>
+<br>
+
+<p th:text="${answer.compare()} > 0? 'Курс сегодня выше на ' + ${answer.compare()} +'.' :
+(${answer.compare()} < 0? 'Курс сегодня ниже на ' + ${answer.compare()} +'.' : 'Курс не изменился.')"></p>
+<br>
+<div th:if="${answer.compare() > 0}">
+    <img class="giphy-gif-img giphy-img-loaded"
+         src="https://media0.giphy.com/media/26FPLMDDN5fJCir0A/200.gif?cid=ecf05e476q1t8aqp5janndy1elalojbu9ki404slamwa3t7d&amp;
+     rid=200.gif&amp;ct=g" width="248" height="187" alt="high roller jackpot GIF by University of Alaska Fairbanks" style="background: rgb(0, 204, 255);">
+</div>
+<div th:if="${answer.compare() <= 0}">
+    <img class="giphy-gif-img giphy-img-loaded" src="https://media1.giphy.com/media/1ppudqsvJAWPa63iLU/200w.gif?cid=ecf05e47a48k5ivqknyby2uq81w1qdlblbn3igo04gne4h58&
+    amp;rid=200w.gif&amp;ct=g" width="248" height="248" alt="Sarah Colonna Netflix GIF by Insatiable" style="background: rgb(0, 255, 153);">
+</div>
+<br>
+<a href="/">Главная страница</a>
+</body>
+</html>
